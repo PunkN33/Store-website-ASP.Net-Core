@@ -1,0 +1,17 @@
+﻿@model Craft
+
+<div class="col-3 col-6-medium col-12-small">
+    <section class="box feature">
+        <a href="#" class="image featured"><img src="@Model.Image" alt="" /></a>
+        <h3><a href="#">@Model.Name</a></h3>
+        <p>
+            @Model.LongDescription
+            <br />
+            <br />
+            Стоимость:@Model.Price.ToString("c")
+        </p>
+        <ul class="actions">
+            <li><a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-id="@Model.Id" class="button small" style="background-color: #FFA500">Добавить в корзину</a></li>
+        </ul>
+    </section>
+</div>

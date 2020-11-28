@@ -1,0 +1,38 @@
+﻿@model ShoppingCartViewModel
+<header id="header">
+    <div class="logo container">
+        <div>
+            <h1>Корзина</h1>
+        </div>
+    </div>
+</header>
+<nav id="nav">
+    <ul>
+        <li><a href="/Home/Index">Главная</a></li>
+        <li>
+            <a href="/Craft/List">Каталог</a>
+            <ul>
+                <li><a href="/Craft/List/Plant">Растения</a></li>
+                <li><a href="/Craft/List/Ornament">Украшения</a></li>
+                <li><a href="/Craft/List/Wood">Деревянный дизайн</a></li>
+            </ul>
+        </li>
+        <li class="current"><a href="/ShoppingCart/Index">Корзина</a></li>
+    </ul>
+</nav>
+
+<div class="col-3 col-6-medium col-12-small">
+    <section class="box feature">
+        @foreach (var el in Model.efCart.shopItems)
+        {
+            <div class="alert alert-warning mt-3">
+                <b>Товар:</b> @el.Craft.Name" <br />
+                <b>Стоимость:</b> @el.Craft.Price.ToString("c")"
+            </div>
+        }
+        <ul class="actions">
+            <li><a asp-controller="Order" asp-action="CheckOut" class="button small" style="background-color: #FFA500">Оплатить</a></li>
+        </ul>       
+    </section>
+</div>
+
